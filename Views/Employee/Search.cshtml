@@ -1,0 +1,90 @@
+﻿@model EmployeeDetailsViewModel
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title>Grit</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="z-depth-5">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>FirstName</th>
+              <th>lastName</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Address_2</th>
+              <th>Date_Of_Birth</th>
+              <th>Mobile</th>
+              <th>Payroll_Number</th>
+              <th>Telephone</th>
+              <th>Start_date</th>
+              <th>PostCode</th>
+            </tr>
+          </thead>
+
+          
+            
+            <tbody>
+                 <tr>
+                  <td>@Model.Employee.Id</td>
+                  <td>@Model.Employee.FirstName</td>
+                  <td>@Model.Employee.LastName</td>
+                  <td>@Model.Employee.Email_Home</td>
+                  <td>@Model.Employee.Address</td>
+                  <td>@Model.Employee.Address_2</td>
+                  <td>@Model.Employee.Date_Of_Birth</td>
+                  <td>@Model.Employee.Mobile</td>
+                  <td>@Model.Employee.Payroll_Number</td>
+                  <td>@Model.Employee.Telephone</td>
+                  <td>@Model.Employee.Start_date</td>
+                  <td>@Model.Employee.PostCode</td>
+                 </tr>
+          </tbody>
+               
+            
+        </table>
+
+        <!-- Searching -->
+        
+        </div>
+    </div>
+    <button class="btn bt">Update</button>
+
+     <form asp-action="index" asp-controller="Employee" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </form>
+
+
+   <div class="row" >
+    <form class="col s12" asp-action="Search" asp-controller="Employee" method="post">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <a href="/Datas">Button</a>
+
+   
+  </body>
+</html>

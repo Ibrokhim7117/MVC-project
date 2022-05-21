@@ -1,0 +1,38 @@
+﻿  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title>Grit</title>
+  </head>
+  <body>
+       <form asp-action="Create" asp-controller="Employee" class="col s12" method="post">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="First Name" name="FirstName" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" name="LastName" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" name="Payroll_Number" type="text" class="validate">
+            <label for="password">Payroll_Number</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" name="Email_Home" type="email" class="validate">
+            <label for="email">Email_Home</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Update</button>
+      </form>
+   </body>
+</html>
