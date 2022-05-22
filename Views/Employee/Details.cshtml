@@ -1,0 +1,69 @@
+﻿@model EmployeeDetailsViewModel
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title>Grit</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="z-depth-5">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>FirstName</th>
+              <th>lastName</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>@Model.Employee.Id</td>
+              <td>@Model.Employee.FirstName</td>
+              <td>@Model.Employee.LastName</td>
+              <td>@Model.Employee.Email_Home</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Searching -->
+        
+        </div>
+    </div>
+    <button class="btn bt">Update</button>
+
+     <form asp-action="index" asp-controller="Employee" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </form>
+
+  <a href="/Student/Datas">Button</a>
+
+   
+  </body>
+</html>

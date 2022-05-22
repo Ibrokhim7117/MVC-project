@@ -10,11 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Example
 {
@@ -34,22 +30,13 @@ namespace Example
         {
             services.AddControllersWithViews();
            
-
-            var connectionString = _config["PostgreSQL:ConnectionString"];
-            var dbPassword = _config["PostgreSQL:DbPassword"];
-
-            var builder = new NpgsqlConnectionStringBuilder(connectionString)
-            {
-                Password = dbPassword
-            };
-
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             services.AddTransient<IEmpolyeeRepository, EmployeeRepository>();
             
             services.AddTransient<IEmployeeService, EmployeeService>();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.ConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
 
         }
 
@@ -75,9 +62,7 @@ namespace Example
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

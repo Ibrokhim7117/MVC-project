@@ -35,7 +35,7 @@ namespace Example.Data.Repositories
             return _Employees;
         }
 
-        public async Task<Employee> GetAsync(string email)
+        public async Task<Employee> GetAsync(string email = "akmal92@gamil.com")
         {
             return await _Employees.FirstOrDefaultAsync(user => user.Email_Home.Equals(email));
         }

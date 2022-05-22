@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Example.Controllers
 {
-
+    
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext dbContext;
@@ -24,14 +24,20 @@ namespace Example.Controllers
             return View();
         }
 
-        public async Task<ViewResult> Search(string email)
+        
+        public async Task<ViewResult> Details(string email)
         {
-            var viewModel = new EmployeeDetailsViewModel()
+            if (email is not null)
             {
-                Employee = await employeeService.GetAsync(email)
-            };
+                var viewModel = new EmployeeDetailsViewModel()
+                {
+                    Employee = await employeeService.GetAsync(email)
+                };
+                   return View(viewModel);
+            }
+            
+            return View();  
 
-            return View(viewModel);
 
         }
 
